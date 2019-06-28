@@ -3,8 +3,17 @@
   "version": "1.0.0",
   "description": "bot for scrapyard",
   "main": "index.js",
+  "engines": {
+    "node": "10.x",
+    "npm": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konsti219/tapebot.git"
   },
   "author": "konsti219",
   "license": "MIT",
