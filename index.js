@@ -5,7 +5,6 @@ const client = new commando.Client({
   owner: '445226810498744321',
   disableEveryone: true
 });
-//445226810498744321
 var content, mutedUsers, i;
 
 
@@ -19,10 +18,8 @@ client.registry
   .registerGroup('random', 'Random Commands')
   .registerGroup('fun', 'Fun Commands')
 
-  // Registers all built-in groups, commands, and argument types
   .registerDefaults()
 
-  // Registers all commands in the ./commands/ directory
   .registerCommandsIn(__dirname + '/commands');
 
 
