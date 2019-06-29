@@ -2,10 +2,12 @@ const commando = require('discord.js-commando');
 const fs = require("fs");
 const client = new commando.Client({
   commandPrefix: '!',
+  owner: '445226810498744321',
   disableEveryone: true
 });
-var content, mutedUsers, i;
 //445226810498744321
+var content, mutedUsers, i;
+
 
 
 client.login('NTkwMDY0NDg1NTIwMTEzNjY3.XQc2RQ.-1zcvs4jyCNKRylYxKbBFp5OklE');
