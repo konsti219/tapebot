@@ -18,6 +18,7 @@
   "author": "konsti219",
   "license": "MIT",
   "dependencies": {
+    "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0"
   }
 }
