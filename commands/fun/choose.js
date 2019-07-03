@@ -20,7 +20,7 @@ module.exports = class EchoCommand extends commando.Command {
   async run(msg, {
     method
   }) {
-    user = 'test';
+    var user = 'test';
     msg.say(`${user} was choosen from ${method} members!`);
   }
 }
