@@ -13,7 +13,7 @@ This bot uses discord.js-commando to make building commands easier. The availabl
 
 For further information use the !help command when the bot is running or check the [command].js file in commands/[group]/ .
 The muted users are saved in mutedUsers.json and is loaded each time a message is sent. But it's planned to move that to a database and also provide seperation for diffrent servers which currently isn't a problem because the bot is build to only run on one server.
-Also there is already a Procfile for using this with Heroku.
+Also there is already a Procfile for using this with Heroku. 
 
 Setup
 -----
