@@ -20,6 +20,8 @@ module.exports = class EchoCommand extends commando.Command {
   async run(msg, {
     method
   }) {
+    const guild = client.guilds;
+    console.log(guild);
     var user = 'test';
     msg.say(`${user} was choosen from ${method} members!`);
   }
