@@ -1,6 +1,5 @@
 const commando = require('discord.js-commando');
-const fs = require("fs");
-var mutedUsers, content;
+const fs = require('fs');
 
 module.exports = class EchoCommand extends commando.Command {
   constructor(client) {
@@ -25,14 +24,23 @@ module.exports = class EchoCommand extends commando.Command {
     user
   }) {
     //Chat
-    msg.say(`Taping the mouth of ${user} *Beep Boop*`)
+    msg.say(`Taping the mouth of ${user} *Beep Boop*`);
 
-    //Saving
-    content = fs.readFileSync("mutedUsers.json");
-    mutedUsers = JSON.parse(content);
+    //Loading array
+    var data = fs.readFileSync('mutedUsers.json');
+    var mutedUsers = JSON.parse(data);
 
+    //Check if already muted
+    for (var i in mutedUsers) {
+      if (mutedUsers[i] == user.id) {
+        msg.say('Or just adding more tape... *user already muted*');
+        return;
+      }
+    }
+
+    //Save
     mutedUsers.push(user.id);
-    content = JSON.stringify(mutedUsers);
-    fs.writeFile("mutedUsers.json", content, function(e) {});
+    data = JSON.stringify(mutedUsers);
+    fs.writeFile('mutedUsers.json', data, (e) => {});
   }
 }

@@ -1,5 +1,5 @@
 const commando = require('discord.js-commando');
-const fs = require("fs");
+const fs = require('fs');
 require('dotenv').config();
 
 //Create Client
@@ -27,24 +27,10 @@ client.on('ready', () => {
 });
 
 //Mute
-var content, mutedUsers;
 client.on('message', msg => {
-  content = fs.readFileSync("mutedUsers.json");
-  mutedUsers = JSON.parse(content);
-
+  var data = fs.readFileSync('mutedUsers.json');
+  var mutedUsers = JSON.parse(data);
   for (var i in mutedUsers) {
     if (mutedUsers[i] == msg.author.id) msg.delete();
   }
 });
-
-
-
-
-
-/*
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-    msg.channel.send('pong2');
-  }
-});*/
