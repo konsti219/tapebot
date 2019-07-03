@@ -22,6 +22,6 @@ module.exports = class KickCommand extends commando.Command {
     user
   }) {
     msg.mentions.members.first().kick('tape');
-    msg.say(`Shoooting tape at ${user} *Beep Boop*. ${user} runs away! *kicked*`);
+    msg.say(`Shoooting tape at ${user} *Beep*. ${user} runs away! *kicked*`);
   }
 }
