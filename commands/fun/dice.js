@@ -6,7 +6,7 @@ module.exports = class DiceCommand extends commando.Command {
       name: 'dice',
       memberName: 'dice',
       group: 'fun',
-      description: 'Rolls a die',
+      description: 'Rolls a dice',
       examples: ['dice 10'],
       args: [{
         key: 'faces',
