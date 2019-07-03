@@ -1,16 +1,15 @@
 const commando = require('discord.js-commando');
 const fs = require("fs");
+require('dotenv').config();
+
+//Create Client
 const client = new commando.Client({
   commandPrefix: '!',
   owner: '445226810498744321',
   disableEveryone: true
 });
-var content, mutedUsers, i;
 
-
-
-client.login('NTkwMDY0NDg1NTIwMTEzNjY3.XQc2RQ.-1zcvs4jyCNKRylYxKbBFp5OklE');
-
+client.login(process.env.LOGIN);
 
 client.registry
   // Registers custom command groups (Directory/internal name; Ui name)
@@ -22,18 +21,18 @@ client.registry
 
   .registerCommandsIn(__dirname + '/commands');
 
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setActivity('Ready to tape your ass');
 });
 
 //Mute
+var content, mutedUsers;
 client.on('message', msg => {
   content = fs.readFileSync("mutedUsers.json");
   mutedUsers = JSON.parse(content);
 
-  for (i in mutedUsers) {
+  for (var i in mutedUsers) {
     if (mutedUsers[i] == msg.author.id) msg.delete();
   }
 });
