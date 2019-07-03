@@ -10,7 +10,7 @@ module.exports = class ChooseCommand extends commando.Command {
       examples: ['choose all', 'choose online'],
       args: [{
         key: 'method',
-        prompt: 'Who to chose?',
+        prompt: 'What pool to choose from (online/all)?',
         type: 'string',
         default: 'online'
       }]
