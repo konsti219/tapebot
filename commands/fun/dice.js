@@ -5,7 +5,7 @@ module.exports = class DiceCommand extends commando.Command {
     super(client, {
       name: 'dice',
       memberName: 'dice',
-      group: 'random',
+      group: 'fun',
       description: 'Rolls a die',
       examples: ['dice 10'],
       args: [{

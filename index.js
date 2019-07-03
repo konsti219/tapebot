@@ -14,7 +14,6 @@ client.login(process.env.LOGIN);
 client.registry
   // Registers custom command groups (Directory/internal name; Ui name)
   .registerGroup('moderation', 'Moderation Commands')
-  .registerGroup('random', 'Random Commands')
   .registerGroup('fun', 'Fun Commands')
 
   .registerDefaults()
