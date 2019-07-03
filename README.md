@@ -11,7 +11,7 @@ This bot uses discord.js-commando to make building commands easier. The availabl
 - !unmute
 - !kick
 
-For further information use the !help command when the bot is running or check the [command].js file in commands/[group]/
+For further information use the !help command when the bot is running or check the [command].js file in commands/[group]/ .
 
 Setup
 -----
