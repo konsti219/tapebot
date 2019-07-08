@@ -37,8 +37,6 @@ module.exports = class ChooseCommand extends commando.Command {
     for (var i in membersArray) {
       members.push(membersArray[i][1].user); //weird 2d array to simple array
     }
-    console.log(members.length);
-    console.log(members);
     user = members[Math.floor(Math.random() * members.length)]; //randomly selecting user from array
 
     msg.say(`${user} was choosen from ${method} members!`);
