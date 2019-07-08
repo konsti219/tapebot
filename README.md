@@ -4,9 +4,10 @@ Tapebot - A simple discord bot
 About
 -----
 This bot uses discord.js-commando to make building commands easier. The available commands are:
-- !dice [random]
+- !dice [fun]
 - !echo [fun]
 - !parrot [fun]
+- !choose [fun]
 - !mute [moderation]
 - !unmute [moderation]
 - !kick [moderation]
