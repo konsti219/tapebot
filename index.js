@@ -1,6 +1,10 @@
 const commando = require('discord.js-commando');
 const fs = require('fs');
-require('dotenv').config();
+const express = require('express');
+const app = express();
+
+app.listen(process.env.PORT); //listener
+app.use(express.static('public')); //webpage
 
 //Create Client
 const client = new commando.Client({
@@ -33,3 +37,16 @@ client.on('message', msg => {
     if (mutedUsers[i] == msg.author.id) msg.delete();
   }
 });
+
+
+//prevent from sleeping
+setInterval(() => require('https').get('https://tapebot.glitch.me', r => {}), 240000);
+
+/*
+//prevent from sleeping
+setInterval(() => {
+  https.get('https://tapebot.glitch.me', resp => {
+    resp.on('data', chunk => {});
+    resp.on('end', () => {});
+  }).on("error", err => {console.log("Error: " + err.message);});
+}, 240 * 1000);*/
