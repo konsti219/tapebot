@@ -31,22 +31,12 @@ client.on('ready', () => {
 
 //Mute
 client.on('message', msg => {
-  var data = fs.readFileSync('mutedUsers.json');
-  var mutedUsers = JSON.parse(data);
-  for (var i in mutedUsers) {
-    if (mutedUsers[i] == msg.author.id) msg.delete();
+  let mutedUsers = JSON.parse(fs.readFileSync('mutedUsers.json'));
+  for (let user of mutedUsers) {
+    if (user == msg.author.id) msg.delete();
   }
 });
 
 
 //prevent from sleeping
 setInterval(() => require('https').get('https://tapebot.glitch.me', r => {}), 240000);
-
-/*
-//prevent from sleeping
-setInterval(() => {
-  https.get('https://tapebot.glitch.me', resp => {
-    resp.on('data', chunk => {});
-    resp.on('end', () => {});
-  }).on("error", err => {console.log("Error: " + err.message);});
-}, 240 * 1000);*/

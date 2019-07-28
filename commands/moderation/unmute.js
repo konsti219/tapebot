@@ -20,20 +20,17 @@ module.exports = class EchoCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    user
-  }) {
+  async run(msg, { user }) {
     //Chat
     msg.say(`Pealing the tape of ${user}... slowly... *Beep Boop*`);
 
     //Loading array
-    var data = fs.readFileSync('mutedUsers.json');
-    var mutedUsers = JSON.parse(data);
+    let mutedUsers = JSON.parse(fs.readFileSync('mutedUsers.json'));
 
     //Check if already muted
-    var unmuted = false;
-    for (var i in mutedUsers) {
-      if (mutedUsers[i] == user.id) {
+    let unmuted = false;
+    for (let userId of mutedUsers) {
+      if (userId == user.id) {
         mutedUsers.splice(i, 1);
         unmuted = true;
       }
@@ -41,7 +38,6 @@ module.exports = class EchoCommand extends commando.Command {
     if (!unmuted) msg.say('But what tape? *user not muted*');
 
     //Save
-    data = JSON.stringify(mutedUsers);
-    fs.writeFile('mutedUsers.json', data, (e) => {});
+    fs.writeFileSync('mutedUsers.json', JSON.stringify(mutedUsers));
   }
 }

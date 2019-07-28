@@ -18,9 +18,7 @@ module.exports = class ParrotCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    text
-  }) {
+  async run(msg, { text }) {
     msg.delete();
     msg.say(`<:parrot:589916784325427200> *schnatter* ${text} *schnatter schnatter*`);
   }

@@ -18,9 +18,7 @@ module.exports = class KickCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    user
-  }) {
+  async run(msg, { user }) {
     msg.mentions.members.first().kick('tape');
     msg.say(`Shoooting tape at ${user} *Beep*. ${user} runs away! *kicked*`);
   }

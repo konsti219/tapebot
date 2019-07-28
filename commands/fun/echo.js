@@ -18,9 +18,7 @@ module.exports = class EchoCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    text
-  }) {
+  async run(msg, { text }) {
     msg.delete();
     msg.say(`As ${msg.author.username} said: ${text}`);
   }
