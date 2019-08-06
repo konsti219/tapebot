@@ -18,10 +18,8 @@ module.exports = class EchoCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    text
-  }) {
-    msg.delete();
+  async run(msg, { text }) {
+    msg.delete(); // ? Doesn't work?
     msg.say(`As ${msg.author.username} said: ${text}`);
   }
 }

@@ -18,10 +18,7 @@ module.exports = class DiceCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    faces
-  }) {
-    var roll = Math.floor(Math.random() * faces) + 1;
-    msg.say(`With your ${faces} sided dice you rolled a ${roll}!`);
+  async run(msg, { faces }) {
+    msg.say(`With your ${faces} sided dice you rolled a ${Math.floor(Math.random() * faces) + 1}!`);
   }
 }

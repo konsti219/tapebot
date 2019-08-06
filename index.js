@@ -3,10 +3,10 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 
-app.listen(process.env.PORT); //listener
-app.use(express.static('public')); //webpage
+app.listen(process.env.PORT); // listener
+app.use(express.static('public')); // webpage
 
-//Create Client
+// create client
 const client = new commando.Client({
   commandPrefix: '!',
   owner: '445226810498744321',
@@ -16,7 +16,7 @@ const client = new commando.Client({
 client.login(process.env.LOGIN);
 
 client.registry
-  // Registers custom command groups (Directory/internal name; Ui name)
+  // registers custom command groups (Directory/internal name; Ui name)
   .registerGroup('moderation', 'Moderation Commands')
   .registerGroup('fun', 'Fun Commands')
 
@@ -29,24 +29,15 @@ client.on('ready', () => {
   client.user.setActivity('Ready to tape your ass');
 });
 
-//Mute
+// mute
+// ? use DB instead?
 client.on('message', msg => {
-  var data = fs.readFileSync('mutedUsers.json');
-  var mutedUsers = JSON.parse(data);
-  for (var i in mutedUsers) {
-    if (mutedUsers[i] == msg.author.id) msg.delete();
+  let mutedUsers = JSON.parse(fs.readFileSync('mutedUsers.json'));
+  for (let user of mutedUsers) {
+    if (user == msg.author.id) msg.delete();
   }
 });
 
 
-//prevent from sleeping
+// ! prevent from sleeping
 setInterval(() => require('https').get('https://tapebot.glitch.me', r => {}), 240000);
-
-/*
-//prevent from sleeping
-setInterval(() => {
-  https.get('https://tapebot.glitch.me', resp => {
-    resp.on('data', chunk => {});
-    resp.on('end', () => {});
-  }).on("error", err => {console.log("Error: " + err.message);});
-}, 240 * 1000);*/

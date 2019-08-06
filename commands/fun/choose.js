@@ -17,27 +17,24 @@ module.exports = class ChooseCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    method
-  }) {
-    var user;
-    const commandoMembers = msg.member.guild.members; //Extract server data from message
-    var filteredMembers;
+  async run(msg, { method }) {
+    const commandoMembers = msg.guild.members; // extract server data from message
 
-    if (method == 'online') filteredMembers = commandoMembers.filter(m => m.presence.status === 'online'); // the super weird map but it's filtered first
-    else if (method == 'all') filteredMembers = commandoMembers; //just the super weird map
+    let filteredMembers;
+    if (method == 'online') filteredMembers = commandoMembers.filter(m => m.presence.status === 'online');
+    else if (method == 'all') filteredMembers = commandoMembers; // just the super weird map
     else {
       msg.reply('Please use **online** or **all** to define from what pool you want to select a user from!');
       return;
     }
+    const membersArray = Array.from(filteredMembers);
 
-    const membersArray = Array.from(filteredMembers); //Super weird map to 2d array
-
-    var members = []; //easy to work with users array
-    for (var i in membersArray) {
-      members.push(membersArray[i][1].user); //weird 2d array to simple array
+    let members = [];
+    for (let i in membersArray) {
+      members.push(membersArray[i][1].user);
     }
-    user = members[Math.floor(Math.random() * members.length)]; //randomly selecting user from array
+
+    let user = members[Math.floor(Math.random() * members.length)]; // randomly selecting user from array
 
     msg.say(`${user} was choosen from ${method} members!`);
   }

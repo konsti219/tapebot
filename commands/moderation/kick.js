@@ -18,10 +18,19 @@ module.exports = class KickCommand extends commando.Command {
     });
   }
 
-  async run(msg, {
-    user
-  }) {
+  async run(msg, { user }) {
+    // chat
     msg.mentions.members.first().kick('tape');
     msg.say(`Shoooting tape at ${user} *Beep*. ${user} runs away! *kicked*`);
+
+    // * making sure user is unmuted
+    // loading array + removing user + saving
+    let mutedUsers = JSON.parse(fs.readFileSync('mutedUsers.json'));
+    for (let userId of mutedUsers) {
+      if (userId == user.id) {
+        mutedUsers.splice(i, 1);
+      }
+    }
+    fs.writeFileSync('mutedUsers.json', JSON.stringify(mutedUsers));
   }
 }
